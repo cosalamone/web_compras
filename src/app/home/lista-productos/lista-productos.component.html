@@ -22,11 +22,33 @@
                 </mat-card-content>
 
                 <mat-card-actions>
-                    <div >
+                    <!-- <div >
                         <span class="down cargando-counter" name="disminuirCantidad">-</span>
                         <input type="text" disabled id="" value="1">
                         <span class="up cargando-counter" name="aumentarCantidad">+</span>
+                    </div> -->
+
+                    <div class="row text-center mt-5">
+                        <div class="col-md-12 col-12">
+
+                            <button type="button" mat-icon-button (click)="counterMinus()">
+                                <span class="material-icons cart-icon">
+                                    remove
+                                </span>
+                            </button>
+
+
+                            <span>{{numero}}</span>
+                            <button type="button" mat-icon-button (click)="counterAdd()">
+                                <span class="material-icons cart-icon">
+                                    add
+                                </span>
+                            </button>
+
+
+                        </div>
                     </div>
+
                     <button mat-button>
                         <span mat-button class="material-icons">
                             shopping_cart

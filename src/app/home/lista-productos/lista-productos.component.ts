@@ -20,7 +20,7 @@ export class ListaProductosComponent {
       (dataParoductos) => {
         this.productos = dataParoductos;
 
-        
+
       }
     )
 
@@ -29,4 +29,18 @@ export class ListaProductosComponent {
 
   // ruta para las imagenes es: https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_ + {{producto.imagen.nombre}}
 
+  numero: number = 1
+
+  counterAdd() {
+    
+    return (this.numero = this.numero + 1)
+  }
+
+  counterMinus() {
+
+    if(this.numero > 0) {
+      (this.numero = this.numero - 1)
+    } else this.numero = 0
+    
+  }
 }
