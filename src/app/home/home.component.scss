@@ -34,3 +34,13 @@
     display: initial;
   }
 
+
+  .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.toolbar {
+  z-index: 9999;
+}

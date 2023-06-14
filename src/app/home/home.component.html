@@ -21,8 +21,8 @@
 
 
     <!-- TOOLBAR -->
-    <div class="example-sidenav-content">
-        <mat-toolbar color="primary">
+    <div class="example-sidenav-content ">
+        <mat-toolbar color="primary" class="sticky toolbar">
             <div class="div.flex.justify-content-bewteen">
 
                 <button type="button" (click)="drawer.toggle()" mat-icon-button class="example-icon"
@@ -33,7 +33,7 @@
 
                 <button type="button" mat-icon-button class="example-icon">Iniciar sesión</button>
 
-                <span  class="material-icons cart-icon">
+                <span class="material-icons cart-icon">
                     shopping_cart
                 </span>
             </div>
@@ -46,7 +46,7 @@
         <!-- CUERPO DE LA PAGINA - Utilizando router-->
         <main>
             <!-- <router-outlet></router-outlet> -->
-            
+            <app-lista-productos></app-lista-productos>
         </main>
     </div>
 
