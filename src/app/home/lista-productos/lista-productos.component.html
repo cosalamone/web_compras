@@ -1,0 +1,44 @@
+<div class="m-5">
+
+    <mat-grid-list cols="4" rowHeight="1:1" class="m-5 grid">
+
+        <mat-grid-tile *ngFor="let producto of productos" class="m-5">
+
+
+            <mat-card class="example-card" class="card-style">
+
+                <mat-card-header>
+                    <mat-card-title>{{producto.nombre}}</mat-card-title>
+                    <mat-card-subtitle>subcategoria</mat-card-subtitle>
+                </mat-card-header>
+
+                <img mat-card-image src="{{rutaImg}}9291_Mouse_Logitech_M100_Negro_USB_4dc57579-med.jpg"
+                    alt="Photo of a Shiba Inu" class="img-card">
+
+                <mat-card-content class="precio">
+                    <p>
+                        ${{producto.precio}}
+                    </p>
+                </mat-card-content>
+
+                <mat-card-actions>
+                    <div >
+                        <span class="down cargando-counter" name="disminuirCantidad">-</span>
+                        <input type="text" disabled id="" value="1">
+                        <span class="up cargando-counter" name="aumentarCantidad">+</span>
+                    </div>
+                    <button mat-button>
+                        <span mat-button class="material-icons">
+                            shopping_cart
+                        </span>
+                    </button>
+
+                </mat-card-actions>
+
+            </mat-card>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+
+
+</div>
