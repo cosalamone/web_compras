@@ -31,7 +31,7 @@ export class ListaProductosComponent {
 
   numero: number = 1 // TO-DO que el number máximo se considere en base al stock de X producto
 
-  counterAdd() {
+  counterAdd() { // TO-DO cambia el número en todos los counter a la par 
     
     return (this.numero = this.numero + 1)
   }
