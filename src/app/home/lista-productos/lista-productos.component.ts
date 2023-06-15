@@ -29,7 +29,7 @@ export class ListaProductosComponent {
 
   // ruta para las imagenes es: https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_ + {{producto.imagen.nombre}}
 
-  numero: number = 1
+  numero: number = 1 // TO-DO que el number máximo se considere en base al stock de X producto
 
   counterAdd() {
     
