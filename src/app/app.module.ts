@@ -7,12 +7,16 @@ import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './auth/login/login.component';
+import { FormRegistroComponent } from './auth/form-registro/form-registro.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AuthComponent,
+    LoginComponent,
+    FormRegistroComponent,
     //ListaProductosComponent
   ],
   imports: [
