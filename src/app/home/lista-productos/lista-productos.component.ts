@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
+import { ItemCarrito } from 'src/app/interfaces/itemCarrito';
 import { Producto } from 'src/app/interfaces/producto';
+import { Subcategoria } from 'src/app/interfaces/subcategoria';
 import { ProductosService } from 'src/app/services/productos.service';
+import { SubcategoriasService } from 'src/app/services/subcategorias.service';
 
 @Component({
   selector: 'app-lista-productos',
@@ -10,39 +13,68 @@ import { ProductosService } from 'src/app/services/productos.service';
 export class ListaProductosComponent {
 
 
-  productos: Producto[] = [];
+  listaProductos: Producto[] = [];
+  subcategorias: Subcategoria[] = [];
+
+  carrito: ItemCarrito[] = [];
 
   rutaImg = 'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_'
 
-  constructor(private productosService: ProductosService) {
+  constructor(private productosService: ProductosService,
+    private subcategoriasService: SubcategoriasService) {
 
     this.productosService.getProductos().subscribe(
-      (dataParoductos) => {
-        this.productos = dataParoductos;
+      (dataProductos) => {
+        this.listaProductos = dataProductos;
 
-        
 
-        
+        this.subcategoriasService.getSubcategorias().subscribe(
+          (dataSubcategorias) => {
+            this.subcategorias = dataSubcategorias;
+          }
+        )
+
       }
     )
 
+
+  }
+
+ 
+
+ cantidadDeProductoEnCarrito(prodId: number) {
+    let cantidadEnCarrito = this.carrito.find(prod => prodId == prod.producto.id_producto)?.cantidad ?? 0
+    return cantidadEnCarrito
   }
 
 
-  // ruta para las imagenes es: https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_ + {{producto.imagen.nombre}}
+  counterAdd(prodId: number) { 
 
-  numero: number = 1 // TO-DO que el number máximo se considere en base al stock de X producto
+    let item = this.carrito.find(prod => prodId == prod.producto.id_producto);
 
-  counterAdd() { // TO-DO cambia el número en todos los counter a la par 
+    if(item && item.producto.stock > item.cantidad){
+      item.cantidad++;
+    }
+    else{
+      let producto = this.listaProductos.find(p=>p.id_producto === prodId);
 
-    return (this.numero = this.numero + 1)
+      if(producto && producto.stock > 0){
+        let itemCarrito: ItemCarrito = {producto, cantidad: 1}
+        this.carrito.push(itemCarrito);
+      }
+    }
   }
 
-  counterMinus() {
+  counterMinus(prodId: number) {
 
-    if (this.numero > 0) {
-      (this.numero = this.numero - 1)
-    } else this.numero = 0
+    let item = this.carrito.find(prod => prodId == prod.producto.id_producto);
+    if(item){
+      item.cantidad--;
 
+      if(item.cantidad === 0){
+        this.carrito = this.carrito.filter(x=>x.producto.id_producto !== prodId)
+      }
+    }
+  
   }
 }

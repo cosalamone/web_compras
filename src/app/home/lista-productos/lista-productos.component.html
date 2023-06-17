@@ -2,7 +2,7 @@
 
     <div class="row">
 
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 cardContainer" *ngFor="let producto of productos">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 cardContainer" *ngFor="let producto of listaProductos">
 
             <mat-card class="example-card " class="card-style">
 
@@ -11,8 +11,8 @@
                     <mat-card-subtitle>subcategoria {{producto.id_subcategoria}}</mat-card-subtitle>
                 </mat-card-header>
 
-                <img mat-card-image src="{{rutaImg}}{{producto.imagenes[0].nombre}}-med.jpg"
-                    alt="Photo of a Shiba Inu" class="img-card">
+                <img mat-card-image src="{{rutaImg}}{{producto.imagenes[0].nombre}}-med.jpg" alt="{{producto.nombre}}"
+                    class="img-card">
 
                 <mat-card-content class="precio">
                     <p>
@@ -21,32 +21,27 @@
                 </mat-card-content>
 
                 <mat-card-actions>
-                    <!-- <div >
-                        <span class="down cargando-counter" name="disminuirCantidad">-</span>
-                        <input type="text" disabled id="" value="1">
-                        <span class="up cargando-counter" name="aumentarCantidad">+</span>
-                    </div> -->
 
                     <div>
-                        <div>
 
-                            <button type="button" mat-icon-button (click)="counterMinus()">
-                                <span class="material-icons cart-icon">
-                                    remove
-                                </span>
-                            </button>
-
-
-                            <span>{{numero}}</span>
-                            <button type="button" mat-icon-button (click)="counterAdd()">
-                                <span class="material-icons cart-icon">
-                                    add
-                                </span>
-                            </button>
+                        <button type="button" mat-icon-button (click)="counterMinus(producto.id_producto)">
+                            <span class="material-icons cart-icon">
+                                remove
+                            </span>
+                        </button>
 
 
-                        </div>
+                        <span>{{ cantidadDeProductoEnCarrito(producto.id_producto) }}</span>
+                        
+                        <button type="button" mat-icon-button (click)="counterAdd(producto.id_producto)">
+                            <span class="material-icons cart-icon">
+                                add
+                            </span>
+                        </button>
+
+
                     </div>
+
 
                     <button mat-button>
                         <span mat-button class="material-icons">
