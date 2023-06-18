@@ -1,23 +1,23 @@
 <section class="carritoCompra ">
 
-    <div class="card sticky-carrito " style="width: 15rem">
+    <div class="card " style="width: 15rem">
 
         <h4 class="tituloCarrito">Tu carrito de compras</h4>
         <div>
             <ul *ngFor="let item of carrito">
                 <li>
                     <div class="card-carrito">
-                        <h4 class="card-title">{{item.producto.nombre}} || "[Producto inexistente]"</h4>
+                        <h4 class="card-title">{{item.producto.nombre}}</h4>
                         <p> Cantidad: {{item.cantidad}} </p>
                         <p>Precio unitario: {{item.producto.precio}}</p>
-                        <div>
-                            <a href="#!" name="tachoParaEliminar">
-                                <i class="iTrash bi bi-trash3"></i>
-                            </a>
-                        </div>
+
                     </div>
                 </li>
             </ul>
+        </div>
+
+        <div>
+            <p>Total a pagar: {{ costoCarrito()}} </p>
         </div>
 
 

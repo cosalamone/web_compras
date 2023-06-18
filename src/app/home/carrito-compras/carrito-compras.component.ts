@@ -20,4 +20,15 @@ export class CarritoComprasComponent {
   constructor(private carritoService: CarritoService) { }
 
   carrito = this.carritoService.canasto
+
+  costoCarrito(){
+    let total:number = 0;
+
+    this.carrito.forEach((item)=>{
+      total+= item.producto.precio * item.cantidad
+    })
+
+    return total
+  }
+
 }
