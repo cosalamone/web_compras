@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import links from './nav-items';
+import { CarritoService } from '../services/carrito.service';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,9 @@ export class HomeComponent {
 
   showFiller = false;
 
- 
+  constructor(private carritoService: CarritoService) { }
+
+  carrito = this.carritoService.canasto
 
   logOut(): void {
    

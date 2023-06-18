@@ -14,6 +14,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatBadgeModule } from '@angular/material/badge';
 
 
 
@@ -35,7 +36,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatListModule,
     MatSelectModule,
     MatOptionModule,
-    MatGridListModule
+    MatGridListModule,
+    MatBadgeModule
   ],
   exports: [
     MatTableModule,
@@ -52,7 +54,8 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatListModule,
     MatSelectModule,
     MatOptionModule,
-    MatGridListModule
+    MatGridListModule,
+    MatBadgeModule
   ]
 })
 export class AppMaterialModule { }
