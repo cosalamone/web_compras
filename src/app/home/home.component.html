@@ -15,6 +15,8 @@
             </a>
         </mat-nav-list>
 
+        <app-filtro></app-filtro>
+
 
     </mat-drawer>
     <!-- FIN SIDEBAR -->
@@ -33,9 +35,17 @@
 
                 <button type="button" mat-icon-button class="example-icon">Iniciar sesión</button>
 
-                <span class="material-icons cart-icon">
-                    shopping_cart
-                </span>
+                <button mat-button [matMenuTriggerFor]="belowMenu" mat-button class="material-icons cart-icon">
+
+                    <mat-icon> shopping_cart</mat-icon>
+
+                    <mat-menu #belowMenu="matMenu" yPosition="below">
+                        <app-carrito-compras></app-carrito-compras>
+                    </mat-menu>
+
+                </button>
+
+
             </div>
 
 

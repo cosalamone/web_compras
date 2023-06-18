@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import links from './nav-items';
 
 @Component({
@@ -12,8 +12,7 @@ export class HomeComponent {
 
   showFiller = false;
 
-  constructor() {}
-
+ 
 
   logOut(): void {
    
