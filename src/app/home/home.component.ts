@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import { Component } from '@angular/core';
 import links from './nav-items';
 import { CarritoService } from '../services/carrito.service';
 
@@ -13,11 +13,28 @@ export class HomeComponent {
 
   showFiller = false;
 
-  constructor(private carritoService: CarritoService) { }
+  constructor(private carritoService: CarritoService) {
+
+  }
 
   carrito = this.carritoService.canasto
 
+  totalproductos: number = 0;
+
+  calcularCantidadTotalEnCarrito() {
+    this.totalproductos = 0
+    this.carrito.forEach((item) => {
+
+      this.totalproductos += item.cantidad
+
+    })
+
+    return this.totalproductos
+  }
+
+
+
   logOut(): void {
-   
+
   }
 }
