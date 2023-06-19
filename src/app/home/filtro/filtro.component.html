@@ -1,1 +1,9 @@
-<p>filtro works!</p>
+<mat-chip-listbox aria-label="Fish selection" *ngFor="let subcategoriaSeleccionada of subcategoriasList.selectedOptions.selected">
+  <mat-chip-option>{{subcategoriaSeleccionada.value.nombre }}</mat-chip-option>
+</mat-chip-listbox>
+
+<mat-selection-list #subcategoriasList>
+  <mat-list-option [value]="subcategoria" (selectedChange)="filtroSubcategoriaChanged(subcategoriasList.selectedOptions.selected)" *ngFor="let subcategoria of subcategorias" >
+    {{subcategoria.nombre}}
+  </mat-list-option>
+</mat-selection-list>

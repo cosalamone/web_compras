@@ -15,6 +15,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatBadgeModule } from '@angular/material/badge';
+import { MatTreeModule } from '@angular/material/tree';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 
 
@@ -37,7 +40,10 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatSelectModule,
     MatOptionModule,
     MatGridListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatTreeModule,
+    MatChipsModule,
+    MatAutocompleteModule
   ],
   exports: [
     MatTableModule,
@@ -55,7 +61,10 @@ import { MatBadgeModule } from '@angular/material/badge';
     MatSelectModule,
     MatOptionModule,
     MatGridListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatTreeModule,
+    MatChipsModule,
+    MatAutocompleteModule
   ]
 })
 export class AppMaterialModule { }

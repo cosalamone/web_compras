@@ -14,6 +14,7 @@ import { SubcategoriasService } from 'src/app/services/subcategorias.service';
 export class ListaProductosComponent {
 
 
+  todosLosProductos: Producto[] = [];
   listaProductos: Producto[] = [];
   subcategorias: Subcategoria[] = [];
 
@@ -28,17 +29,20 @@ export class ListaProductosComponent {
 
     this.productosService.getProductos().subscribe(
       (dataProductos) => {
-        this.listaProductos = dataProductos;
+        this.todosLosProductos = dataProductos;
 
 
         this.subcategoriasService.getSubcategorias().subscribe(dataSubcat => {
           this.subcategorias = dataSubcat;
           let subcategoriasMap:any = {};
+
+          // Armo un array con todos los nombres de las subcategorias, donde el idSubCategoria es la posicion
+          // Asi despues por cada producto accedo al nombre de subcategoria sin tener que hacer una busqueda.
           this.subcategorias.forEach(subcategoria=>{
             subcategoriasMap[subcategoria.id] = subcategoria.nombre
           })
 
-          this.listaProductos.forEach(producto=>{
+          this.todosLosProductos.forEach(producto=>{
             const subcategoriaId = producto.id_subcategoria;
             const nombreSubc = subcategoriasMap[subcategoriaId];
             producto.nombreSubcategoria = nombreSubc;
@@ -71,7 +75,7 @@ export class ListaProductosComponent {
       item.cantidad++;
     }
     else {
-      let producto = this.listaProductos.find(p => p.id_producto === prodId);
+      let producto = this.todosLosProductos.find(p => p.id_producto === prodId);
 
       if (producto && producto.stock > 0) {
         let itemCarrito: ItemCarrito = { producto, cantidad: 1 }
