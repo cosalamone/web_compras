@@ -20,6 +20,7 @@ export class ListaProductosComponent {
   // carrito: ItemCarrito[] = []; // deberia estar en carrito - 
 
   rutaImg = 'https://compragamer.net/pga/imagenes_publicadas/compragamer_Imganen_general_'
+  nombreCategorias: Subcategoria[] = []
 
   constructor(private productosService: ProductosService,
     private subcategoriasService: SubcategoriasService,
@@ -30,34 +31,50 @@ export class ListaProductosComponent {
         this.listaProductos = dataProductos;
 
 
-       // TO-DO SUBCATEGORIAS
+        this.subcategoriasService.getSubcategorias().subscribe(dataSubcat => {
+          this.subcategorias = dataSubcat;
+          let subcategoriasMap:any = {};
+          this.subcategorias.forEach(subcategoria=>{
+            subcategoriasMap[subcategoria.id] = subcategoria.nombre
+          })
 
+          this.listaProductos.forEach(producto=>{
+            const subcategoriaId = producto.id_subcategoria;
+            const nombreSubc = subcategoriasMap[subcategoriaId];
+            producto.nombreSubcategoria = nombreSubc;
+          })
+        })
+
+   
       }
+
+
+
     )
 
 
   }
 
- 
 
- cantidadDeProductoEnCarrito(prodId: number) {
+
+  cantidadDeProductoEnCarrito(prodId: number) {
     let cantidadEnCarrito = this.carritoService.canasto.find(prod => prodId == prod.producto.id_producto)?.cantidad ?? 0
     return cantidadEnCarrito
   }
 
 
-  counterAdd(prodId: number) { 
+  counterAdd(prodId: number) {
 
     let item = this.carritoService.canasto.find(prod => prodId == prod.producto.id_producto);
 
-    if(item && item.producto.stock > item.cantidad){
+    if (item && item.producto.stock > item.cantidad) {
       item.cantidad++;
     }
-    else{
-      let producto = this.listaProductos.find(p=>p.id_producto === prodId);
+    else {
+      let producto = this.listaProductos.find(p => p.id_producto === prodId);
 
-      if(producto && producto.stock > 0){
-        let itemCarrito: ItemCarrito = {producto, cantidad: 1}
+      if (producto && producto.stock > 0) {
+        let itemCarrito: ItemCarrito = { producto, cantidad: 1 }
         this.carritoService.canasto.push(itemCarrito);
       }
     }
@@ -68,16 +85,16 @@ export class ListaProductosComponent {
   counterMinus(prodId: number) {
 
     let item = this.carritoService.canasto.find(prod => prodId == prod.producto.id_producto);
-    if(item){
+    if (item) {
       item.cantidad--;
 
-      if(item.cantidad === 0){
-        this.carritoService.canasto = this.carritoService.canasto.filter(x=>x.producto.id_producto !== prodId)
+      if (item.cantidad === 0) {
+        this.carritoService.canasto = this.carritoService.canasto.filter(x => x.producto.id_producto !== prodId)
       }
     }
     console.log(this.carritoService.canasto)
 
   }
 
-  
+
 }

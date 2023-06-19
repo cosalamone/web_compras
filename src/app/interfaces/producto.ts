@@ -9,4 +9,5 @@ export interface Producto {
     stock: number;
     garantia: number;
     iva: number;
+    nombreSubcategoria: string;
 }

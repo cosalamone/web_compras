@@ -8,17 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class SubcategoriasService {
 
-  subcategorias: Subcategoria[] = [];
-
   constructor(private http: HttpClient) { }
 
   getSubcategorias(): Observable<Subcategoria[]>{
     return this.http.get<Subcategoria[]>('https://static.compragamer.com/test/subcategorias.json')
   }
 
-  getSubcategoriasPorId(){ // TO-DO
-     this.http.get<Subcategoria[]>('https://static.compragamer.com/test/subcategorias.json')
-  }
+
 
 
 }

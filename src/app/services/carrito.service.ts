@@ -10,20 +10,4 @@ import { ListaProductosComponent } from '../home/lista-productos/lista-productos
 export class CarritoService {
 
   canasto: ItemCarrito[] = [];
-
-
-  listaProductos: Producto[] = []
-
-  constructor(private productosService: ProductosService) { 
-  
-    this.productosService.getProductos().subscribe((prod)=> this.listaProductos=prod)
-
-  }
-
-  agregarProducto(prodId: number, cantPorAgregar: number){
-
-
-    
-
-  }
 }
