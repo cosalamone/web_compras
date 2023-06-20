@@ -33,9 +33,7 @@ export class LoginComponent {
     if (this.authForm.invalid) {
       this.authForm.markAllAsTouched();
     } else {
-      // this.authService.logIn({
-      //   ...(this.authForm.value as Usuario) 
-      // })
+      localStorage.setItem('usuario', JSON.stringify(this.authForm))
     }
 
     setTimeout(() => {

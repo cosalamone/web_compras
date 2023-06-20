@@ -16,7 +16,7 @@ import { FormRegistroComponent } from './auth/form-registro/form-registro.compon
     HomeComponent,
     AuthComponent,
     LoginComponent,
-    FormRegistroComponent,
+    FormRegistroComponent
     //ListaProductosComponent
   ],
   imports: [

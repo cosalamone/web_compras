@@ -24,7 +24,7 @@ section {
   color: rgb(165, 157, 157);
   background-size: cover;
   background-position: center;
-  background-color: rgba(0, 0, 0, 0.15);
+  background-color: rgba(0, 0, 0, 0.45);
   background-blend-mode: darken;
   text-align: center;
 
@@ -46,4 +46,9 @@ h1 {
 
 .creaNuevaCuenta:hover {
   cursor: pointer;
+}
+
+.creaTuCuenta{
+  color: white;
+  text-decoration: underline;
 }

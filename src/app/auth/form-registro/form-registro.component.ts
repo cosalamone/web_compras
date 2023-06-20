@@ -9,7 +9,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class FormRegistroComponent {
 
-  
+
   minCaracteres: number = 3;
   dniMinLength: number = 7;
   telefonoMinLength: number = 8;
@@ -19,18 +19,20 @@ export class FormRegistroComponent {
   nombreControl = new FormControl('', [Validators.required, Validators.minLength(this.minCaracteres)]);
   apellidoControl = new FormControl('', [Validators.required, Validators.minLength(this.minCaracteres)]);
   emailControl = new FormControl('', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")],);
-  dniControl = new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(1000000), Validators.max(99999999) ]);
+  passwordControl = new FormControl('', [Validators.required, Validators.minLength(this.minCaracteres)]);;
+  dniControl = new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.min(1000000), Validators.max(99999999)]);
   telefonoControl = new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$"), Validators.minLength(this.telefonoMinLength)]);
 
   registerForm: FormGroup;
 
   constructor(public formBuilder: FormBuilder,
-    private dialogRef: MatDialogRef<FormRegistroComponent>){
+    private dialogRef: MatDialogRef<FormRegistroComponent>) {
     this.registerForm = this.formBuilder.group({
 
       nombre: this.nombreControl,
       apellido: this.apellidoControl,
       email: this.emailControl,
+      password: this.passwordControl,
       dni: this.dniControl,
       telefono: this.telefonoControl,
 
@@ -48,10 +50,17 @@ export class FormRegistroComponent {
   }
 
 
-  cerrarDialog(){
+  cerrarDialog() {
     this.dialogRef.close();
   }
 
-  crearUsuario(){}
+  crearUsuario():void {
+    if (this.registerForm.valid) {
+     this.dialogRef.close(localStorage.setItem('nuevo usuario', JSON.stringify(this.registerForm.value))) 
+      
+    } else {
+      this.registerForm.markAllAsTouched();
+    }
+  }
 
 }
