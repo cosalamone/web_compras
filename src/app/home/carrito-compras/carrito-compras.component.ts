@@ -1,8 +1,5 @@
-import { Component, Inject } from '@angular/core';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { ItemCarrito } from 'src/app/interfaces/itemCarrito';
+import { Component, Inject, OnChanges, SimpleChanges } from '@angular/core';
 import { CarritoService } from 'src/app/services/carrito.service';
-import { ListaProductosComponent } from '../lista-productos/lista-productos.component';
 
 
 
@@ -14,21 +11,27 @@ import { ListaProductosComponent } from '../lista-productos/lista-productos.comp
 })
 
 
-export class CarritoComprasComponent {
-
+export default class CarritoComprasComponent {
 
   constructor(private carritoService: CarritoService) { }
 
+
   carrito = this.carritoService.canasto
 
-  costoCarrito(){
-    let total:number = 0;
 
-    this.carrito.forEach((item)=>{
-      total+= item.producto.precio * item.cantidad
+
+  costoCarrito() {
+    let total: number = 0;
+
+    this.carrito.forEach((item) => {
+      total += item.producto.precio * item.cantidad
     })
 
     return total
+  }
+
+  vaciarCarrito() {
+    this.carrito = [];
   }
 
 }

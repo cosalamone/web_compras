@@ -59,9 +59,9 @@ export class ListaProductosComponent implements OnChanges {
       }
     )
 
-
-
   }
+
+  // Actualización de listaProdutos s/ las subcategorías filtradas
   ngOnChanges(changes: SimpleChanges): void {
 
 
@@ -100,7 +100,6 @@ export class ListaProductosComponent implements OnChanges {
       }
     }
 
-    console.log(this.carritoService.canasto)
   }
 
   counterMinus(prodId: number) {
@@ -113,7 +112,6 @@ export class ListaProductosComponent implements OnChanges {
         this.carritoService.canasto = this.carritoService.canasto.filter(x => x.producto.id_producto !== prodId)
       }
     }
-    console.log(this.carritoService.canasto)
 
   }
 

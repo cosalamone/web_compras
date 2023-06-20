@@ -9,7 +9,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
 import { ListaProductosComponent } from './home/lista-productos/lista-productos.component';
 import { FiltroComponent } from './home/filtro/filtro.component';
-import { CarritoComprasComponent } from './home/carrito-compras/carrito-compras.component';
+import CarritoComprasComponent from './home/carrito-compras/carrito-compras.component';
 
 @NgModule({
   declarations: [
