@@ -42,7 +42,7 @@ export class ListaProductosComponent implements OnChanges {
           // Armo un array con todos los nombres de las subcategorias, donde el idSubCategoria es la posicion
           // Asi despues por cada producto accedo al nombre de subcategoria sin tener que hacer una busqueda.
           this.subcategorias.forEach(subcategoria => {
-            subcategoriasMap[subcategoria.id] = subcategoria.nombre 
+            subcategoriasMap[subcategoria.id] = subcategoria.nombre
           })
 
           this.todosLosProductos.forEach(producto => {
@@ -51,45 +51,31 @@ export class ListaProductosComponent implements OnChanges {
             producto.nombreSubcategoria = nombreSubc;
           })
 
-          
-          if (this.subcategoriasFiltradas && this.subcategoriasFiltradas.length > 0) {
-            this.listaProductos = this.todosLosProductos.filter(x => this.subcategoriasFiltradas.some(s => s.id == x.id_subcategoria))
 
-          }
-          else{
-            this.listaProductos = this.todosLosProductos;
-          }
+          this.listaProductos = this.todosLosProductos;
 
 
         })
-
-
-
-
       }
-
-
-
-
     )
 
 
 
   }
   ngOnChanges(changes: SimpleChanges): void {
-    
+
 
     if (this.subcategoriasFiltradas && this.subcategoriasFiltradas.length > 0) {
       this.listaProductos = this.todosLosProductos.filter(x => this.subcategoriasFiltradas.some(s => s.id == x.id_subcategoria))
 
     }
-    else{
+    else {
       this.listaProductos = this.todosLosProductos;
     }
-    
+
   }
 
-  
+
 
 
   cantidadDeProductoEnCarrito(prodId: number) {

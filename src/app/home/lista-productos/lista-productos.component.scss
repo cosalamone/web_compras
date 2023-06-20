@@ -6,10 +6,18 @@
     max-width: 400px;
 }
 
-.row{
+.productosContainer{
     margin-left: 7px;
     margin-top: 70px;
+    position: absolute;
 }
+.chipsContainer{
+    top: 70px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 
 .img-card {
@@ -63,3 +71,4 @@
     color: rgb(124, 161, 93);
     user-select: none;
 }
+

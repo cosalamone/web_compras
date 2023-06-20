@@ -2,3 +2,8 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.centeredMessage{
+    position: absolute;
+    top: calc( (100vh - 32px + 64px) / 2);
+    left: calc( (100vw - 272px) / 2 );
+}

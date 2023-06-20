@@ -1,6 +1,15 @@
 <div class="container ">
+    <div class="chipsContainer">
+        <mat-chip-listbox  *ngFor="let subcategoriaSeleccionada of subcategoriasFiltradas">
+            <mat-chip-option>{{subcategoriaSeleccionada.nombre }}</mat-chip-option>
+        </mat-chip-listbox>
+    </div>
 
-    <div class="row">
+
+
+    <h2 class="centeredMessage" *ngIf="!listaProductos || listaProductos.length==0"> No se encontraron productos.</h2>
+
+    <div class="row productosContainer">
 
         <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 cardContainer" *ngFor="let producto of listaProductos">
 
@@ -32,7 +41,7 @@
 
 
                         <span>{{ cantidadDeProductoEnCarrito(producto.id_producto) }}</span>
-                        
+
                         <button type="button" mat-icon-button (click)="counterAdd(producto.id_producto)">
                             <span class="material-icons cart-icon">
                                 add
@@ -51,6 +60,7 @@
 
 
         </div>
+
 
     </div>
 
