@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-form-registro',
@@ -23,7 +24,8 @@ export class FormRegistroComponent {
 
   registerForm: FormGroup;
 
-  constructor(public formBuilder: FormBuilder,){
+  constructor(public formBuilder: FormBuilder,
+    private dialogRef: MatDialogRef<FormRegistroComponent>){
     this.registerForm = this.formBuilder.group({
 
       nombre: this.nombreControl,
@@ -46,7 +48,9 @@ export class FormRegistroComponent {
   }
 
 
-  cerrarDialog(){}
+  cerrarDialog(){
+    this.dialogRef.close();
+  }
 
   crearUsuario(){}
 

@@ -53,8 +53,7 @@ export class LoginComponent {
   }
 
 
-  // Abrit formulario de registro de usuario
-
+  // Abrir formulario de registro de usuario
   abrirForm(): void {
     const dialog = this.matDialog.open(FormRegistroComponent);
     dialog.afterClosed().subscribe((valor)=>{
