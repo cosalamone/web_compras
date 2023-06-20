@@ -4,6 +4,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormRegistroComponent } from '../form-registro/form-registro.component';
 import { AuthService } from 'src/app/services/auth.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-login',
@@ -19,6 +21,7 @@ export class LoginComponent {
     private router: Router,
     private route: ActivatedRoute,
     private matDialog: MatDialog,
+    private snackBar: MatSnackBar,
 
   ) { }
 
@@ -38,7 +41,7 @@ export class LoginComponent {
       this.authForm.markAllAsTouched();
     } else {
       if(this.authForm.value.email && this.authForm.value.password)
-      this.authService.login(this.authForm.value.email, this.authForm.value.password) 
+      this.authService.login(this.authForm.value.email, this.authForm.value.password, this.snackBar) 
       }
     
   }
@@ -56,10 +59,6 @@ export class LoginComponent {
   // Abrir formulario de registro de usuario
   abrirForm(): void {
     const dialog = this.matDialog.open(FormRegistroComponent);
-    dialog.afterClosed().subscribe((valor)=>{
-      if (valor){
-        
-      }
-    })
+    dialog.afterClosed().subscribe()
   }
 }

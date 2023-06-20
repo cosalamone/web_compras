@@ -13,6 +13,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 
 
@@ -34,6 +35,7 @@ import { MatOptionModule } from '@angular/material/core';
     MatListModule,
     MatSelectModule,
     MatOptionModule,
+    MatSnackBarModule
   ],
   exports: [
     MatTableModule,
@@ -50,6 +52,7 @@ import { MatOptionModule } from '@angular/material/core';
     MatListModule,
     MatSelectModule,
     MatOptionModule,
+    MatSnackBarModule
   ]
 })
 export class AppMaterialModule { }
