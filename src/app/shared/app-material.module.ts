@@ -18,6 +18,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatDividerModule } from '@angular/material/divider';
 
 
 
@@ -43,7 +44,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatBadgeModule,
     MatTreeModule,
     MatChipsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDividerModule
   ],
   exports: [
     MatTableModule,
@@ -64,7 +66,8 @@ import { MatAutocompleteModule } from '@angular/material/autocomplete';
     MatBadgeModule,
     MatTreeModule,
     MatChipsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    MatDividerModule
   ]
 })
 export class AppMaterialModule { }

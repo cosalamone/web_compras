@@ -1,7 +1,7 @@
 .cardContainer {
     max-width: 450px;
     min-height: 380px;
-    max-height: 380px;
+    max-height: 420px;
 
 }
 
@@ -15,13 +15,12 @@
 }
 
 .productosContainer {
-    margin-left: 7px;
-    margin-top: 70px;
-    position: absolute;
+    margin-top: 10px;
+    position: relative;
 }
 
 .chipsContainer {
-    top: 70px;
+    top: 10px;
     position: relative;
     display: flex;
     flex-wrap: wrap;

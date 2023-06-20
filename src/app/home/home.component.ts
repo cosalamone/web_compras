@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import links from './nav-items';
 import { CarritoService } from '../services/carrito.service';
 import { Subcategoria } from '../interfaces/subcategoria';
+import { MatSidenav } from '@angular/material/sidenav';
+import { BreakpointObserver } from '@angular/cdk/layout'
 
 @Component({
   selector: 'app-home',
@@ -10,12 +12,16 @@ import { Subcategoria } from '../interfaces/subcategoria';
 })
 export class HomeComponent {
 
+  @ViewChild(MatSidenav)
+  sidenav!: MatSidenav
+
   links = links;
 
   showFiller = false;
   subcategoriasRecibidas: Subcategoria[] = []
 
-  constructor(private carritoService: CarritoService) {
+  constructor(private carritoService: CarritoService,
+   private observer: BreakpointObserver ) {
 
   }
 
