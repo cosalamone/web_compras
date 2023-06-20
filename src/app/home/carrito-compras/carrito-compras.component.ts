@@ -16,7 +16,7 @@ export default class CarritoComprasComponent {
   constructor(private carritoService: CarritoService) { }
 
 
-  carrito = this.carritoService.canasto
+  carrito = this.carritoService.canasto //
 
 
 
@@ -31,7 +31,7 @@ export default class CarritoComprasComponent {
   }
 
   vaciarCarrito() {
-    this.carrito = [];
+    this.carritoService.canasto.splice(0,this.carritoService.canasto.length);
   }
 
 }

@@ -87,11 +87,11 @@ export class ListaProductosComponent implements OnChanges {
   counterAdd(prodId: number) {
 
     let item = this.carritoService.canasto.find(prod => prodId == prod.producto.id_producto);
-
-    if (item && item.producto.stock > item.cantidad) {
-      item.cantidad++;
-    }
-    else {
+    if (item) {
+      if (item.producto.stock > item.cantidad) {
+        item.cantidad++;
+      }
+    } else {
       let producto = this.todosLosProductos.find(p => p.id_producto === prodId);
 
       if (producto && producto.stock > 0) {
@@ -99,6 +99,7 @@ export class ListaProductosComponent implements OnChanges {
         this.carritoService.canasto.push(itemCarrito);
       }
     }
+    console.log(this.carritoService.canasto)
 
   }
 
@@ -109,9 +110,11 @@ export class ListaProductosComponent implements OnChanges {
       item.cantidad--;
 
       if (item.cantidad === 0) {
-        this.carritoService.canasto = this.carritoService.canasto.filter(x => x.producto.id_producto !== prodId)
+        let index = this.carritoService.canasto.indexOf(item)
+        this.carritoService.canasto.splice(index, 1)
       }
     }
+    console.log(this.carritoService.canasto)
 
   }
 
