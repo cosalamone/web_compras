@@ -56,7 +56,7 @@ export class FormRegistroComponent {
 
   crearUsuario():void {
     if (this.registerForm.valid) {
-     this.dialogRef.close(localStorage.setItem('nuevo usuario', JSON.stringify(this.registerForm.value))) 
+     this.dialogRef.close(localStorage.setItem(this.registerForm.value.email, JSON.stringify(this.registerForm.value))) 
       
     } else {
       this.registerForm.markAllAsTouched();

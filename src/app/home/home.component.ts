@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import links from './nav-items';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,10 +13,10 @@ export class HomeComponent {
 
   showFiller = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
 
-  logOut(): void {
-   
+  iniciarSesion(): void {
+    this.router.navigate(['login'])
   }
 }

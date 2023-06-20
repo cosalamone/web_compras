@@ -1,53 +1,12 @@
-<mat-drawer-container class="example-container" autosize>
+<mat-toolbar >
+    <div>
+       
 
-    <!-- SIDEBAR -->
-    <mat-drawer [opened]="true" #drawer class="example-sidenav" mode="side">
+        <button type="button" (click)="iniciarSesion()" mat-button class="btn-iniciar">Iniciar sesión</button>
 
-        <mat-nav-list>
-            <ng-container *ngFor="let link of links">
-                <a [routerLink]="['/'+link.url]" mat-list-item>
-                    {{link.title}}
-                </a>
-            </ng-container>
+        <span class="plataforma">COMPRA GAMER </span>
 
-            <a (click)="logOut()" mat-list-item>
-                Cerrar sesión
-            </a>
-        </mat-nav-list>
-
-
-    </mat-drawer>
-    <!-- FIN SIDEBAR -->
-
-
-    <!-- TOOLBAR -->
-    <div class="example-sidenav-content">
-        <mat-toolbar color="primary">
-            <div class="div.flex.justify-content-bewteen">
-
-                <button type="button" (click)="drawer.toggle()" mat-icon-button class="example-icon"
-                    aria-label="Example icon-button with menu icon">
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <span class="plataforma">COMPRA GAMER </span>
-
-                <button type="button" mat-icon-button class="example-icon">Iniciar sesión</button>
-
-                <span  class="material-icons cart-icon">
-                    shopping_cart
-                </span>
-            </div>
-
-
-        </mat-toolbar>
-        <!-- FIN TOOLBAR -->
-
-      <router-outlet></router-outlet>
-
-        <!-- CUERPO DE LA PAGINA - Utilizando router-->
-        <main>
-            <router-outlet></router-outlet>
-        </main>
+        
     </div>
+</mat-toolbar>
 
-</mat-drawer-container>

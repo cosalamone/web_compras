@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormRegistroComponent } from '../form-registro/form-registro.component';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,10 @@ import { FormRegistroComponent } from '../form-registro/form-registro.component'
 })
 export class LoginComponent {
 
-  constructor(//private authService: AuthService,
+  returnUrl!: string;
+
+
+  constructor(private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute,
     private matDialog: MatDialog,
@@ -33,12 +37,10 @@ export class LoginComponent {
     if (this.authForm.invalid) {
       this.authForm.markAllAsTouched();
     } else {
-      localStorage.setItem('usuario', JSON.stringify(this.authForm))
-    }
-
-    setTimeout(() => {
-      // this.router.navigateByUrl(this.returnUrl)
-    }, 100)
+      if(this.authForm.value.email && this.authForm.value.password)
+      this.authService.login(this.authForm.value.email, this.authForm.value.password) 
+      }
+    
   }
 
   getErrorMessage() {
