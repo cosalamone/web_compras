@@ -1,7 +1,7 @@
 <div class="container ">
     <div class="chipsContainer">
-        <mat-chip-listbox  *ngFor="let subcategoriaSeleccionada of subcategoriasFiltradas">
-            <mat-chip>{{subcategoriaSeleccionada.nombre }}</mat-chip>
+        <mat-chip-listbox *ngFor="let subcategoriaSeleccionada of subcategoriasFiltradas">
+            <mat-chip disabled>{{subcategoriaSeleccionada.nombre }}</mat-chip>
         </mat-chip-listbox>
     </div>
 
@@ -11,27 +11,29 @@
 
     <div class="row productosContainer">
 
-        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 cardContainer" *ngFor="let producto of listaProductos">
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6" *ngFor="let producto of listaProductos">
 
-            <mat-card class="example-card " class="card-style">
-
-                <mat-card-header>
-                    <mat-card-title>{{producto.nombre}}</mat-card-title>
-                    <mat-card-subtitle>{{producto.nombreSubcategoria}}</mat-card-subtitle>
-                    <mat-card-subtitle> Stock disponible: {{producto.stock}}</mat-card-subtitle>
-                </mat-card-header>
-
+            <mat-card class="example-card " class="card-style cardContainer">
                 <img mat-card-image src="{{rutaImg}}{{producto.imagenes[0].nombre}}-med.jpg" alt="{{producto.nombre}}"
                     class="img-card">
+                <mat-divider></mat-divider>
+
+                <mat-card-header>
+                    <mat-card-title class="tituloCard">{{producto.nombre}}</mat-card-title>
+                    <mat-card-subtitle class="subcategoria">{{producto.nombreSubcategoria}}</mat-card-subtitle>
+                    <mat-card-subtitle class="subcategoria"> Stock: {{producto.stock}}</mat-card-subtitle>
+                </mat-card-header>
+
+
 
                 <mat-card-content class="precio">
-                    
+
                     <p>
                         {{producto.precio | pesosFormat}} <!-- TO-DO FILTRO DE PRECION $ 1.000,00 -->
                     </p>
                 </mat-card-content>
 
-                <mat-card-actions>
+                <mat-card-actions class="counter-container">
 
                     <div>
 
@@ -42,7 +44,7 @@
                         </button>
 
 
-                        <span>{{ cantidadDeProductoEnCarrito(producto.id_producto) }}</span>
+                        <span class="cantidadProductos">{{ cantidadDeProductoEnCarrito(producto.id_producto) }}</span>
 
                         <button type="button" mat-icon-button (click)="counterAdd(producto.id_producto)">
                             <span class="material-icons cart-icon">

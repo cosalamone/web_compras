@@ -1,17 +1,26 @@
-.example-card {
-    max-width: 500px;
+.cardContainer {
+    max-width: 450px;
+    min-height: 380px;
+    max-height: 380px;
+
 }
 
-.cardContainer{
-    max-width: 400px;
+
+.tituloCard {
+    font-size: 18px;
 }
 
-.productosContainer{
+.subcategoria {
+    padding: 3px;
+}
+
+.productosContainer {
     margin-left: 7px;
     margin-top: 70px;
     position: absolute;
 }
-.chipsContainer{
+
+.chipsContainer {
     top: 70px;
     position: relative;
     display: flex;
@@ -19,10 +28,15 @@
 }
 
 
+.mat-mdc-standard-chip.mdc-evolution-chip--disabled {
+    opacity: 1 !important;
+}
+
 
 .img-card {
     max-width: 150px !important;
-    align-items: center;
+    align-self: center;
+    padding: 13px;
 
 }
 
@@ -33,15 +47,28 @@
 }
 
 
-
 .grid {
     margin-top: 70px;
 }
 
 .precio {
     float: left;
-    font-weight: bold9;
+    font-size: larger;
+    background-color: rgb(86, 41, 74);
+    color: white;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px;
+    float: right;
+    display: inline-flex;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 8px;
 }
+
+
+
+
 
 .counter {
     width: 150px;
@@ -51,24 +78,22 @@
     justify-content: center;
 }
 
-.counter input {
-    width: 50px;
-    border: 0;
-    line-height: 30px;
-    font-size: 16px;
-    text-align: center;
-    background: rgb(124, 161, 93);
-    color: #fff;
-    appearance: none;
-    outline: 0;
-}
+
 
 .counter span {
     display: block;
     font-size: 20px;
     padding: 0 10px;
     cursor: pointer;
-    color: rgb(124, 161, 93);
+    color: rgb(86, 41, 74);
     user-select: none;
 }
 
+.counter-container {
+    align-self: center;
+}
+
+.cantidadProductos {
+    padding: 10px;
+    position: relative;
+}
