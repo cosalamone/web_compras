@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatListOption } from '@angular/material/list';
 import { Producto } from 'src/app/interfaces/producto';
 import { Subcategoria } from 'src/app/interfaces/subcategoria';
@@ -15,9 +15,10 @@ import { SubcategoriasService } from 'src/app/services/subcategorias.service';
 })
 export class FiltroComponent {
 
-  listaProductos: Producto[] = [];
   subcategorias: Subcategoria[] = [];
   subcategoriasSeleccionadas:Subcategoria[] = [];
+
+  @Output() selectedSubcategoriasChanged = new EventEmitter()
 
 
   constructor(private subcategoriaService: SubcategoriasService,
@@ -31,10 +32,6 @@ export class FiltroComponent {
         
         )
 
-      this.productosService.getProductos().subscribe((prod) => {
-        this.listaProductos = prod;
-      })
-
     }
     )
 
@@ -43,6 +40,8 @@ export class FiltroComponent {
 
   filtroSubcategoriaChanged(subcategoriasSeleccionadas:MatListOption[]){
     this.subcategoriasSeleccionadas = subcategoriasSeleccionadas.map(x=>x.value);
+    this.selectedSubcategoriasChanged.emit(this.subcategoriasSeleccionadas);
+
   }
 
 }

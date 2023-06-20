@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import links from './nav-items';
 import { CarritoService } from '../services/carrito.service';
+import { Subcategoria } from '../interfaces/subcategoria';
 
 @Component({
   selector: 'app-home',
@@ -12,6 +13,7 @@ export class HomeComponent {
   links = links;
 
   showFiller = false;
+  subcategoriasRecibidas: Subcategoria[] = []
 
   constructor(private carritoService: CarritoService) {
 
@@ -36,5 +38,9 @@ export class HomeComponent {
 
   logOut(): void {
 
+  }
+
+  filtroSelectedChanged(subcategorias: Subcategoria[]){
+    this.subcategoriasRecibidas = subcategorias
   }
 }

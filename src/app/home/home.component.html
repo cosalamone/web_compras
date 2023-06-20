@@ -3,19 +3,9 @@
     <!-- SIDEBAR -->
     <mat-drawer [opened]="false" #drawer class="example-sidenav" mode="side">
 
-        <mat-nav-list>
-            <ng-container *ngFor="let link of links">
-                <a [routerLink]="['/'+link.url]" mat-list-item>
-                    {{link.title}}
-                </a>
-            </ng-container>
+    
 
-            <a (click)="logOut()" mat-list-item>
-                Cerrar sesión
-            </a>
-        </mat-nav-list>
-
-        <app-filtro></app-filtro>
+        <app-filtro (selectedSubcategoriasChanged)="filtroSelectedChanged($event)"></app-filtro>
 
 
     </mat-drawer>
@@ -57,7 +47,7 @@
         <!-- CUERPO DE LA PAGINA - Utilizando router-->
         <main>
             <!-- <router-outlet></router-outlet> -->
-            <app-lista-productos></app-lista-productos>
+            <app-lista-productos [subcategoriasFiltradas]="subcategoriasRecibidas"></app-lista-productos>
         </main>
     </div>
 
