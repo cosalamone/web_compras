@@ -1,10 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
-import { CarritoService } from '../services/carrito.service';
 import { Subcategoria } from '../interfaces/subcategoria';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout'
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { CarritoService } from '../services/carrito.service';
 
 @Component({
   selector: 'app-home',
@@ -33,7 +33,7 @@ export class HomeComponent {
 
   calcularCantidadTotalEnCarrito() {
     this.totalproductos = 0
-    this.carrito.forEach((item) => {
+    this.carrito.forEach((item:any) => {
 
       this.totalproductos += item.cantidad
 

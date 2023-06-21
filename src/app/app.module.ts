@@ -7,11 +7,11 @@ import { HomeComponent } from './home/home.component';
 import { AuthComponent } from './auth/auth.component';
 import { SharedModule } from './shared/shared.module';
 import { AppRoutingModule } from './app-routing.module';
-import { ListaProductosComponent } from './home/lista-productos/lista-productos.component';
 import { FiltroComponent } from './home/filtro/filtro.component';
 import CarritoComprasComponent from './home/carrito-compras/carrito-compras.component';
 import { LoginComponent } from './auth/login/login.component';
 import { FormRegistroComponent } from './auth/form-registro/form-registro.component';
+import { ListaProductosComponent } from './home/lista-productos/lista-productos.component';
 
 
 @NgModule({
