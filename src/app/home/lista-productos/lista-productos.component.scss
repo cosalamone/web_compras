@@ -1,0 +1,98 @@
+.cardContainer {
+    max-width: 450px;
+    min-height: 400px;
+    max-height: 450px;
+
+}
+
+
+.tituloCard {
+    font-size: 18px;
+}
+
+.subcategoria {
+    padding: 3px;
+}
+
+.productosContainer {
+    margin-top: 10px;
+    position: relative;
+}
+
+.chipsContainer {
+    top: 10px;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.mat-mdc-standard-chip.mdc-evolution-chip--disabled {
+    opacity: 1 !important;
+}
+
+
+.img-card {
+    max-width: 150px !important;
+    align-self: center;
+    padding: 13px;
+
+}
+
+.card-style {
+    margin: 10px;
+    padding: 3px;
+
+}
+
+
+.grid {
+    margin-top: 70px;
+}
+
+.precio {
+    float: left;
+    font-size: larger;
+    background-color: rgb(86, 41, 74);
+    color: white;
+    border-radius: 5px;
+    width: fit-content;
+    padding: 5px;
+    float: right;
+    display: inline-flex;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: 8px;
+}
+
+
+
+
+
+.counter {
+    width: 150px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.counter span {
+    display: block;
+    font-size: 20px;
+    padding: 0 10px;
+    cursor: pointer;
+    color: rgb(86, 41, 74);
+    user-select: none;
+}
+
+.counter-container {
+    align-self: center;
+}
+
+.cantidadProductos {
+    padding: 10px;
+    position: relative;
+}

@@ -4,11 +4,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppMaterialModule } from './app-material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { PesosFormatPipe } from './pesos-format.pipe';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    PesosFormatPipe
+  ],
   imports: [
     CommonModule,
     FormsModule,
@@ -16,15 +19,15 @@ import { RouterModule } from '@angular/router';
     AppMaterialModule,
     HttpClientModule,
     RouterModule,
-    
   ],
-  exports:[
+  exports: [
     FormsModule,
     ReactiveFormsModule,
-    CommonModule, 
+    CommonModule,
     AppMaterialModule,
     HttpClientModule,
     RouterModule,
+    PesosFormatPipe
   ]
 })
 export class SharedModule { }

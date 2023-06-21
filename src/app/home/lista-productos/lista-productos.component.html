@@ -1,0 +1,74 @@
+<div class="container ">
+    <div class="chipsContainer">
+        <mat-chip-listbox *ngFor="let subcategoriaSeleccionada of subcategoriasFiltradas">
+            <mat-chip disabled>{{subcategoriaSeleccionada.nombre }}</mat-chip>
+        </mat-chip-listbox>
+    </div>
+
+
+
+    <h2 class="centeredMessage" *ngIf="!listaProductos || listaProductos.length==0"> No se encontraron productos.</h2>
+
+    <div class="row productosContainer">
+
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6" *ngFor="let producto of listaProductos">
+
+            <mat-card class="example-card " class="card-style cardContainer">
+                <img mat-card-image src="{{rutaImg}}{{producto.imagenes[0].nombre}}-med.jpg" alt="{{producto.nombre}}"
+                    class="img-card">
+                <mat-divider></mat-divider>
+
+                <mat-card-header>
+                    <mat-card-title class="tituloCard">{{producto.nombre}}</mat-card-title>
+                    <mat-card-subtitle class="subcategoria">{{producto.nombreSubcategoria}}</mat-card-subtitle>
+                    <mat-card-subtitle class="subcategoria"> Stock: {{producto.stock}}</mat-card-subtitle>
+                </mat-card-header>
+
+
+
+                <mat-card-content class="precio">
+
+                    <p>
+                        {{producto.precio | pesosFormat}} 
+                    </p>
+                </mat-card-content>
+
+                <mat-card-actions class="counter-container">
+
+                    <div>
+
+                        <button type="button" mat-icon-button (click)="counterMinus(producto.id_producto)">
+                            <span class="material-icons cart-icon">
+                                remove
+                            </span>
+                        </button>
+
+
+                        <span class="cantidadProductos">{{ cantidadDeProductoEnCarrito(producto.id_producto) }}</span>
+
+                        <button type="button" mat-icon-button (click)="counterAdd(producto.id_producto)">
+                            <span class="material-icons cart-icon">
+                                add
+                            </span>
+                        </button>
+
+
+                    </div>
+
+
+                </mat-card-actions>
+
+            </mat-card>
+
+
+
+
+        </div>
+
+
+    </div>
+
+
+
+
+</div>

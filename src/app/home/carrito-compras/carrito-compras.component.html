@@ -1,0 +1,31 @@
+<section class="carritoCompra ">
+
+    <div class="card " style="width: 15rem">
+
+        <h4 class="tituloCarrito">Tu carrito de compras</h4>
+        <div>
+            <ul *ngFor="let item of carrito">
+                <li>
+                    <div class="card-carrito">
+                        <h4 class="card-title">
+                            <b>
+                                {{item.producto.nombre}}
+                            </b></h4>
+                        <p> Cantidad: {{item.cantidad}} </p>
+                        <p>Precio unitario: {{item.producto.precio | pesosFormat}}</p>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div>
+            <p>Total a pagar: {{ costoCarrito() | pesosFormat}} </p>
+        </div>
+
+
+        <button class="buttonVaciarCarrito" (click)="vaciarCarrito()">Vaciá tu carrito</button>
+
+
+    </div>
+</section>
