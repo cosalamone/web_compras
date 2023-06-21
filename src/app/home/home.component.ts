@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import links from './nav-items';
 import { CarritoService } from '../services/carrito.service';
 import { Subcategoria } from '../interfaces/subcategoria';
 import { MatSidenav } from '@angular/material/sidenav';
@@ -15,9 +14,7 @@ export class HomeComponent {
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav
 
-  links = links;
 
-  showFiller = false;
   subcategoriasRecibidas: Subcategoria[] = []
 
   constructor(private carritoService: CarritoService,
@@ -40,11 +37,6 @@ export class HomeComponent {
     return this.totalproductos
   }
 
-
-
-  logOut(): void {
-
-  }
 
   filtroSelectedChanged(subcategorias: Subcategoria[]){
     this.subcategoriasRecibidas = subcategorias
