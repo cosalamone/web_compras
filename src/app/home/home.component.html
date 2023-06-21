@@ -4,7 +4,7 @@
             <mat-icon>filter_alt</mat-icon>
         </button>
 
-
+        <button type="button" *ngIf="!usuarioLogueado" (click)="iniciarSesion()" mat-button class="btn-iniciar">Iniciar sesión</button>
 
         <span class="plataforma">COMPRA GAMER </span>
 

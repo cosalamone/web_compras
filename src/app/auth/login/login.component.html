@@ -1,0 +1,47 @@
+<section>
+
+
+    <div class="m-3">
+        <h1>COMPRA GAMER</h1>
+
+        <form [formGroup]="authForm" (ngSubmit)="onSubmit()">
+
+            <div>
+                <div>
+                    <h1 class="p-5">Iniciar sesión</h1>
+
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Email</mat-label>
+                        <input [formControl]="emailControl" placeholder="email" matInput />
+                        <mat-error *ngIf="emailControl.invalid">{{getErrorMessage()}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Contraseña</mat-label>
+                        <input [formControl]="passwordControl" placeholder="contraseña" matInput type="password" />
+                        <mat-error *ngIf="passwordControl.invalid">Mínimo {{minLength}} caracteres</mat-error>
+
+                    </mat-form-field>
+                </div>
+
+                <div>
+                    <button mat-flat-button color="primary" type="submit">Ingresar</button>
+
+                </div>
+                <div class="creaNuevaCuenta">
+                    <a (click)="abrirForm()">¿Todavía no estás registado? <p class="creaTuCuenta">Creá tu cuenta acá</p>
+                    </a>
+                </div>
+
+
+            </div>
+
+        
+        </form>
+
+    </div>
+
+</section>

@@ -50,8 +50,7 @@ mat-sidenav-content{
 
 .plataforma {
   position: absolute;
-  left: 40%;
-  margin-top: 10px;
+  left: calc( (100vw - 160px) / 2)
 }
 
 
@@ -79,5 +78,8 @@ mat-sidenav-content{
   font-size: small;
   padding-bottom: 10px;
   
-  
+}
+.mat-toolbar-row, .mat-toolbar-single-row {
+  align-items: normal;
+  padding-top: 15px;
 }

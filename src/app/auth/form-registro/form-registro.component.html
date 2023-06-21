@@ -1,0 +1,84 @@
+<h3 mat-dialog-title>Crea una cuenta</h3>
+
+<div mat-dialog-content>
+    <form [formGroup]="registerForm">
+        <div>
+            <mat-form-field appearance="fill">
+                <!--Nombre-->
+                <mat-label>Nombre</mat-label>
+                <input [formControl]="nombreControl" matInput placeholder="Nombre">
+                <mat-error *ngIf="nombreControl.invalid">Minimo {{minCaracteres}} caracteres</mat-error>
+
+            </mat-form-field>
+
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <!--Apellido-->
+                <mat-label>Apellido</mat-label>
+                <input [formControl]="apellidoControl" matInput placeholder="Apellido">
+                <mat-error *ngIf="apellidoControl.invalid">Minimo {{minCaracteres}} caracteres</mat-error>
+
+            </mat-form-field>
+        </div>
+
+        <div>
+
+            <mat-form-field appearance="fill">
+                <!--DNI -->
+                <mat-label>DNI</mat-label>
+                <input [formControl]="dniControl" matInput type="number">
+                <mat-error *ngIf="dniControl.invalid">Mínimo {{dniMinLength}} dígitos</mat-error>
+
+
+            </mat-form-field>
+        </div>
+
+
+        <div>
+            <mat-form-field appearance="fill">
+                <!--Email-->
+                <mat-label>Ingresá tu e-mail</mat-label>
+                <input matInput placeholder="pat@example.com" [formControl]="emailControl" type="email" required>
+                <mat-error *ngIf="emailControl.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+        </div>
+
+        <div>
+            <mat-form-field [formGroup]="registerForm" appearance="fill">
+                <!--Password-->
+                <mat-label>Contraseña</mat-label>
+                <input [formControl]="passwordControl" matInput type="password">
+                <mat-error *ngIf="passwordControl.invalid">Minimo 3 caracteres</mat-error>
+            </mat-form-field>
+        </div>
+
+
+
+        <div>
+            <div>
+                <mat-form-field appearance="fill">
+                    <!--Teléfono-->
+                    <mat-label>Telefono</mat-label>
+                    <input [formControl]="telefonoControl" matInput type="number">
+                    <mat-error *ngIf="telefonoControl.invalid">Mínimo {{telefonoMinLength}} dígitos</mat-error>
+
+                </mat-form-field>
+            </div>
+        </div>
+
+
+        <div mat-dialog-actions>
+            <button (click)="cerrarDialog()" mat-button>
+                Cancelar
+            </button>
+
+            <button (click)="crearUsuario()" mat-raised-button color="primary">
+                Guardar
+            </button>
+
+        </div>
+
+    </form>
+</div>

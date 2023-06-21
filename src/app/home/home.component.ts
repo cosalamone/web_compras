@@ -3,6 +3,8 @@ import { CarritoService } from '../services/carrito.service';
 import { Subcategoria } from '../interfaces/subcategoria';
 import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout'
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -10,16 +12,19 @@ import { BreakpointObserver } from '@angular/cdk/layout'
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
-
+  
   @ViewChild(MatSidenav)
   sidenav!: MatSidenav
 
 
   subcategoriasRecibidas: Subcategoria[] = []
+  usuarioLogueado = null;
 
   constructor(private carritoService: CarritoService,
-   private observer: BreakpointObserver ) {
-
+   private observer: BreakpointObserver,
+   private router: Router, 
+   private authService: AuthService ) {
+    this.usuarioLogueado = this.authService.usuarioLogueado;
   }
 
   carrito = this.carritoService.canasto
@@ -40,5 +45,9 @@ export class HomeComponent {
 
   filtroSelectedChanged(subcategorias: Subcategoria[]){
     this.subcategoriasRecibidas = subcategorias
+  }
+  
+  iniciarSesion(): void {
+    this.router.navigate(['login'])
   }
 }
