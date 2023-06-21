@@ -4,7 +4,7 @@ export interface Producto {
     id_producto: number;
     id_subcategoria: number;
     precio: number;
-    imagenes: any[]; // TO-DO interface imagen: nombre, etc
+    imagenes: any[]; 
     vendible: number;
     stock: number;
     garantia: number;

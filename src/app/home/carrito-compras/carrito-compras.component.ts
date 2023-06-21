@@ -1,4 +1,4 @@
-import { Component, Inject, OnChanges, SimpleChanges } from '@angular/core';
+import { Component } from '@angular/core';
 import { CarritoService } from 'src/app/services/carrito.service';
 
 
@@ -16,7 +16,7 @@ export default class CarritoComprasComponent {
   constructor(private carritoService: CarritoService) { }
 
 
-  carrito = this.carritoService.canasto //
+  carrito = this.carritoService.canasto 
 
 
 

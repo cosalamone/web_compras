@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MatListOption } from '@angular/material/list';
-import { Producto } from 'src/app/interfaces/producto';
 import { Subcategoria } from 'src/app/interfaces/subcategoria';
-import { ProductosService } from 'src/app/services/productos.service';
 import { SubcategoriasService } from 'src/app/services/subcategorias.service';
 
 
@@ -21,17 +19,13 @@ export class FiltroComponent {
   @Output() selectedSubcategoriasChanged = new EventEmitter()
 
 
-  constructor(private subcategoriaService: SubcategoriasService,
-    private productosService: ProductosService) {
-
+  constructor(private subcategoriaService: SubcategoriasService) {
 
 
     this.subcategoriaService.getSubcategorias().subscribe((data) => {
       this.subcategorias = data.sort(
         (a,b) => a.nombre < b.nombre ? -1 : 1
-        
         )
-
     }
     )
 

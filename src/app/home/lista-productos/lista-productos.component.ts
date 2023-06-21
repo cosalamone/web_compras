@@ -5,7 +5,6 @@ import { Subcategoria } from 'src/app/interfaces/subcategoria';
 import { CarritoService } from 'src/app/services/carrito.service';
 import { ProductosService } from 'src/app/services/productos.service';
 import { SubcategoriasService } from 'src/app/services/subcategorias.service';
-import { FiltroComponent } from '../filtro/filtro.component';
 
 @Component({
   selector: 'app-lista-productos',
@@ -64,10 +63,8 @@ export class ListaProductosComponent implements OnChanges {
   // Actualización de listaProdutos s/ las subcategorías filtradas
   ngOnChanges(changes: SimpleChanges): void {
 
-
     if (this.subcategoriasFiltradas && this.subcategoriasFiltradas.length > 0) {
       this.listaProductos = this.todosLosProductos.filter(x => this.subcategoriasFiltradas.some(s => s.id == x.id_subcategoria))
-
     }
     else {
       this.listaProductos = this.todosLosProductos;
